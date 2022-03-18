@@ -1,12 +1,15 @@
 import React from 'react';
-import {Text} from 'react-native';
+import styled from 'styled-components';
+import Form from '../../components/form';
 
 const Login = (props) => {
     return (
-        <Text>
-            THIS IS LOGIN PAGE
-        </Text>
+        <Form />
     );
 }
+
+const Text = styled.Text`
+    font-size: 20px;
+`
 
 export default Login;
