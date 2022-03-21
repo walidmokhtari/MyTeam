@@ -7,7 +7,6 @@ import Logo from '../img/logo.png';
 import Users from '../configs/db/user';
 
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
 const Form = (props) => {
     const [user, setUser] = useState({});

@@ -1,26 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Dimensions } from 'react-native';
-
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+import { FlatList } from 'react-native';
+import Card from '../../components/card';
+import Players from '../../configs/db/players';
 
 const Home = (props) => {
+
     return (
         <View>
-            <Text>THIS IS HOME PAGE</Text>
+            <FlatList
+                        data={Players}
+                        renderItem={({item}) => (<Card player={item}/>)}
+                        keyExtractor={(item) => item.id}
+                        numColumns={2}
+                        marginTop={20}
+            />
         </View>
     );
 }
 
 const View = styled.View`
-    background-color: green;
-`
 
-const Text = styled.Text`
-    color: white;
-    text-align: center;
-    font-size: 18px;
 `
 
 export default Home;
