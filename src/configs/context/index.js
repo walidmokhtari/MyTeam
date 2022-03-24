@@ -1,18 +1,23 @@
 import React, { useState, createContext, useEffect } from "react"
+
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
 const AuthContext = createContext({
     isLogged: false,
     teamList: [],
+    currentPlayer: {},
     verifyToken: () => {},
     setLogged: () => {},
     addPlayerToTeamList: () => {},
     logout: () => {},
+    CurrentPlayer: () => {},
+    deleteFromTeamList: () => {}
 })
 
 export const AuthContextProvider = ({ children }) => {
     const [isLogged, setIsLogged] = useState(false);
     const [teamList, setTeamList] = useState([]);
+    const [currentPlayer, setCurrentPlayer] = useState({});
 
     const verifyToken = async () => {
         const token = await AsyncStorage.getItem("token")
@@ -30,13 +35,22 @@ export const AuthContextProvider = ({ children }) => {
 
     const addPlayerToTeamList = (player) => {
         setTeamList([...teamList, player]);
-        alert("The player has been added to your player list");
     }
 
     const logout = async () => {
         await AsyncStorage.clear();
         setIsLogged(false)
     }
+
+    const CurrentPlayer = (player) => {
+        setCurrentPlayer(player);
+    }
+
+    const deleteFromTeamList = (id) => {
+        const newTab = teamList.filter((item) => item.id !== id)
+        setTeamList([...newTab])
+        alert("The player has been deleted from team list");
+    }   
 
     useEffect(()=> {
         const clear = async () => {
@@ -49,9 +63,12 @@ export const AuthContextProvider = ({ children }) => {
     const context = {
         isLogged,
         teamList,
+        currentPlayer,
         setLogged,
         addPlayerToTeamList,
         logout,
+        CurrentPlayer,
+        deleteFromTeamList
     }
     return <AuthContext.Provider value={context}>{children}</AuthContext.Provider>
 }

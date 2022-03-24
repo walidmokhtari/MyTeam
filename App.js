@@ -9,6 +9,7 @@ const App = (props) => {
     <AuthContextProvider>
       <Routes />
     </AuthContextProvider>
+    
   );
 }
 

@@ -7,6 +7,7 @@ import Login from '../../screens/login';
 import Home from '../../screens/home';
 import Details from '../../screens/details';
 import MyTeam from '../../screens/my_team';
+import Paiement from '../../screens/paiement';
 import HomeStack from './homeStack';
 
 const Stack = createNativeStackNavigator();
@@ -16,11 +17,13 @@ const Routes = (props) => {
 
     return (    
         <NavigationContainer>
+            
                 {
                     isLogged ?
                         <Stack.Navigator screenOptions={{ headerTitleAlign: 'center' }}>
                             <Stack.Screen  name='My TEAM' component={HomeStack}></Stack.Screen>
                             <Stack.Screen name='Details' component={Details}></Stack.Screen>
+                            <Stack.Screen name='Paiament' component={Paiement}></Stack.Screen>
                         </Stack.Navigator>
                     :
                         <Stack.Navigator>
