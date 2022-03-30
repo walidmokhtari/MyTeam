@@ -5,8 +5,9 @@
     * Authentication
     * Screens protection 
     * Display players after receiving it from a JSON file
-    * User can view a player details and buy them
+    * User can see a player details and buy them
     * Using Stripe service for paiement
+    * User can see his team.
 # Login acces
     * Username : walid.mokhtari@ynov.com
     * Password : Béjaia06
