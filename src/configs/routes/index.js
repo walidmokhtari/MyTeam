@@ -17,7 +17,6 @@ const Routes = (props) => {
 
     return (    
         <NavigationContainer>
-            
                 {
                     isLogged ?
                         <Stack.Navigator screenOptions={{ headerTitleAlign: 'center' }}>
