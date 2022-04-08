@@ -12,4 +12,5 @@
     * Username : walid.mokhtari@ynov.com
     * Password : Béjaia06
 # Platform 
+    *Windows
     *Android 11
